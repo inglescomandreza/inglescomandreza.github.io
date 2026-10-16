@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Inglês com Andreza</title>
+<meta name="description" content="Inglês com Andreza: escola de inglês online para mulheres. Aulas para conversar na vida real.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500;1,600&family=Poppins:wght@400;500;600&display=swap">
+<style>
+/* Layout: mesma sequência de seções do site de referência; faixas de cor de ponta a ponta, conteúdo em coluna de 1120px; identidade Rosa tropical, tema claro único por escolha de marca */
+:root {
+  --framboesa: #C43670;
+  --rosa: #F76493;
+  --coral: #F47E60;
+  --turquesa: #29B0BC;
+  --turquesa-p: #19707A;
+  --rosa-claro: #F5B2B9;
+  --creme: #FBF4EB;
+  --creme-2: #F6EADB;
+  --ink: #3D1430;
+  --ink-suave: #7A4A62;
+  --linha: #E9D6C6;
+  --f-texto: "Poppins", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --f-ingles: "Playfair Display", Georgia, "Times New Roman", serif;
+  --r-md: 18px;
+  --r-lg: 28px;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } * { transition: none !important; } }
+body { background: var(--creme); color: var(--ink); font-family: var(--f-texto); font-size: 17px; line-height: 1.65; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--creme); }
+h1, h2, h3 { font-weight: 600; line-height: 1.15; text-wrap: balance; margin: 0; }
+p { margin: 0; }
+.en { font-family: var(--f-ingles); font-style: italic; font-weight: 500; }
+a { color: inherit; }
+a:focus-visible, summary:focus-visible { outline: 3px solid var(--turquesa); outline-offset: 3px; border-radius: 8px; }
+
+.faixa { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.wrap { max-width: 1120px; margin: 0 auto; }
+section.faixa { padding-block: 96px; }
+@media (max-width: 700px) { section.faixa { padding-block: 64px; } body { font-size: 16px; } }
+
+.eyebrow { font-size: 13px; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: var(--turquesa-p); }
+.titulo { font-size: clamp(30px, 4.4vw, 48px); }
+.titulo .en { color: var(--framboesa); font-size: 1.12em; }
+.lead { color: var(--ink-suave); max-width: 60ch; font-size: 1.05em; }
+.cab { display: grid; gap: 14px; margin-bottom: 48px; max-width: 760px; }
+.cab.centro { margin-inline: auto; text-align: center; justify-items: center; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; background: var(--framboesa); color: var(--creme); font-weight: 600; text-decoration: none; padding: 15px 28px; border-radius: 999px; font-size: 16px; transition: transform .2s, background .2s; }
+.btn:hover { background: #A92B5E; transform: translateY(-2px); }
+.btn.claro { background: var(--creme); color: var(--framboesa); }
+.btn.claro:hover { background: #fff; }
+
+.preencher { background: #FFF3B8; color: var(--ink); border-radius: 6px; padding: 0 6px; font-weight: 500; }
+
+/* NAV */
+header.nav { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: color-mix(in srgb, var(--creme) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--linha); }
+.nav .wrap { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding-block: 14px; }
+.logo { text-decoration: none; display: flex; align-items: baseline; gap: 6px; font-weight: 600; font-size: 19px; white-space: nowrap; }
+.logo .en { color: var(--framboesa); font-size: 1.15em; }
+.nav ul { list-style: none; display: flex; gap: 24px; margin: 0; padding: 0; font-size: 15px; }
+.nav ul a { text-decoration: none; color: var(--ink-suave); }
+.nav ul a:hover { color: var(--framboesa); }
+.nav .btn { padding: 10px 20px; font-size: 14px; }
+.nav-acoes { display: flex; align-items: center; gap: 10px; }
+.menu-btn { display: none; width: 44px; height: 44px; border: 0; border-radius: 50%; background: var(--creme-2); cursor: pointer; flex-direction: column; justify-content: center; align-items: center; gap: 5px; padding: 0; }
+.menu-btn span { width: 18px; height: 2px; background: var(--ink); border-radius: 2px; transition: transform .2s, opacity .2s; }
+.menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+.menu-btn:focus-visible { outline: 3px solid var(--turquesa); outline-offset: 2px; }
+.menu-mob { max-width: 1120px; margin: 0 auto; display: grid; padding-block: 4px 16px; }
+.menu-mob a { text-decoration: none; padding: 14px 4px; border-top: 1px solid var(--linha); font-weight: 500; }
+@media (max-width: 980px) { .nav ul { display: none; } .menu-btn { display: flex; } }
+@media (min-width: 981px) { .menu-mob { display: none !important; } }
+@media (max-width: 420px) { .nav .btn { display: none; } .logo { font-size: 17px; } }
+.hero h1, .titulo, .final h2 { overflow-wrap: anywhere; }
+@media (max-width: 400px) { .lista, .plano, .passo { padding: 26px 20px; } details.q p { padding-right: 0; } }
+
+/* HERO */
+.hero { padding-block: 72px 96px; overflow: hidden; }
+.hero .wrap { display: grid; grid-template-columns: 1.15fr .85fr; gap: 56px; align-items: center; }
+.hero-txt { display: grid; gap: 22px; min-width: 0; }
+.kicker { font-size: 14px; font-weight: 500; color: var(--turquesa-p); }
+.hero h1 { font-size: clamp(44px, 7vw, 84px); letter-spacing: -.02em; line-height: 1; }
+.hero h1 .en { color: var(--framboesa); font-size: 1.08em; display: block; }
+.hero h2 { font-size: clamp(22px, 2.6vw, 30px); }
+.hero h2 .en { color: var(--framboesa); position: relative; white-space: nowrap; }
+.hero h2 .en svg { position: absolute; left: 0; bottom: -.18em; width: 100%; height: .35em; }
+.foto { position: relative; aspect-ratio: 4 / 5; max-width: 100%; }
+.foto .sol { position: absolute; width: 62%; aspect-ratio: 1; border-radius: 50%; background: var(--coral); top: -4%; right: -6%; }
+.foto .onda { position: absolute; width: 70%; aspect-ratio: 2 / 1; border-radius: 999px 999px 0 0; background: var(--turquesa); bottom: -3%; left: -8%; }
+.foto .quadro { position: absolute; inset: 6% 4% 6% 6%; border-radius: 200px 200px var(--r-lg) var(--r-lg); background: var(--rosa-claro); overflow: hidden; }
+.foto .quadro img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 30%; display: block; }
+.foto .quadro small { display: block; color: var(--ink-suave); font-size: 13px; margin-top: 6px; }
+@media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; } .foto { max-width: 360px; width: 100%; margin: 0 auto; } }
+
+/* MÉTODO */
+.metodo { background: var(--framboesa); color: var(--creme); }
+.metodo .eyebrow { color: var(--rosa-claro); }
+.metodo .titulo .en { color: var(--creme); }
+.metodo .lead { color: #F7DDE6; }
+.passos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.passo { background: var(--creme); color: var(--ink); border-radius: var(--r-lg); padding: 32px 28px; display: grid; gap: 14px; align-content: start; min-width: 0; }
+.passo .num { font-family: var(--f-ingles); font-style: italic; font-size: 54px; line-height: 1; color: var(--coral); }
+.passo h3 { font-size: 22px; }
+.passo p { color: var(--ink-suave); font-size: 15.5px; }
+.passo .chips { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 4px; }
+.passo .chips span { font-size: 12.5px; font-weight: 500; background: var(--creme-2); padding: 4px 10px; border-radius: 999px; }
+.ciclo { margin-top: 40px; display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 14px; font-size: 18px; font-weight: 500; }
+.ciclo .seta { color: var(--rosa-claro); }
+.metodo .fecha { text-align: center; margin-top: 18px; color: #F7DDE6; }
+@media (max-width: 860px) { .passos { grid-template-columns: 1fr; } }
+
+/* JORNADA */
+.incluso { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+.item { padding: 26px 24px; border-radius: var(--r-md); background: #fff; display: grid; grid-template-columns: 48px 1fr; gap: 6px 16px; align-content: start; min-width: 0; }
+.item .ic { grid-row: span 2; width: 48px; height: 48px; border-radius: 50%; background: var(--framboesa); display: grid; place-items: center; }
+.item .ic svg { width: 22px; height: 22px; stroke: var(--creme); fill: none; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.item h3 { font-size: 17px; align-self: end; }
+.item p { font-size: 14.5px; color: var(--ink-suave); }
+@media (max-width: 960px) { .incluso { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .incluso { grid-template-columns: 1fr; } }
+
+/* DEPOIMENTOS */
+.depo { background: var(--turquesa); }
+.depo .eyebrow, .depo .titulo .en, .depo .lead { color: var(--ink); }
+.depos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.cartao { margin: 0; background: var(--creme); border-radius: var(--r-lg); padding: 30px 28px 26px; display: grid; gap: 16px; align-content: space-between; min-width: 0; }
+.cartao .aspas { font-family: var(--f-ingles); font-size: 72px; line-height: .6; color: var(--coral); height: 32px; }
+.cartao p { font-size: 15.5px; }
+.cartao p strong { color: var(--framboesa); font-weight: 600; }
+.cartao cite { font-style: normal; font-weight: 600; font-size: 14.5px; }
+@media (max-width: 860px) { .depos { grid-template-columns: 1fr; } }
+
+/* PLANOS */
+.planos { display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px; max-width: 920px; margin: 0 auto; }
+.plano { background: #fff; border-radius: var(--r-lg); padding: 36px 32px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+.plano.dest { background: var(--ink); color: var(--creme); }
+.plano .rot { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--turquesa-p); }
+.plano.dest .rot { color: var(--rosa-claro); }
+.plano h3 { font-size: 30px; }
+.plano .desc { font-size: 15.5px; color: var(--ink-suave); }
+.plano.dest .desc { color: #E6CFDB; }
+.plano ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; font-size: 15.5px; }
+.plano li { display: flex; gap: 10px; }
+.plano li::before { content: ""; flex: none; width: 18px; height: 18px; margin-top: 4px; border-radius: 50%; background: var(--turquesa) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.5l2.6 2.5L13 6.5' fill='none' stroke='%233D1430' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/18px no-repeat; }
+.plano .preco { margin-top: auto; padding-top: 18px; border-top: 1px solid var(--linha); font-size: 14px; color: var(--ink-suave); }
+.plano.dest .preco { border-color: #5C2B4C; color: #E6CFDB; }
+.plano .preco b { display: block; font-size: 26px; color: inherit; margin: 2px 0; }
+.plano.dest .btn { background: var(--rosa); color: var(--ink); }
+@media (max-width: 760px) { .planos { grid-template-columns: 1fr; max-width: 520px; } }
+.experimental { max-width: 920px; margin: 24px auto 0; background: var(--rosa-claro); border-radius: var(--r-lg); padding: 36px 32px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 32px; align-items: center; }
+.exp-txt { display: grid; gap: 12px; min-width: 0; }
+.exp-txt .rot { font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--ink); }
+.exp-txt h3 { font-size: clamp(22px, 2.6vw, 28px); }
+.exp-txt h3 .en { color: var(--framboesa); font-size: 1.1em; }
+.exp-txt p { font-size: 15.5px; }
+.exp-info { display: grid; gap: 12px; min-width: 0; }
+.exp-dados { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.exp-dados div { background: var(--creme); border-radius: var(--r-md); padding: 14px 16px; font-size: 13.5px; color: var(--ink-suave); line-height: 1.3; }
+.exp-dados b { display: block; font-size: 24px; color: var(--framboesa); font-weight: 600; }
+.exp-nota { font-size: 14px; }
+@media (max-width: 760px) { .experimental { grid-template-columns: 1fr; max-width: 520px; padding: 28px 22px; gap: 22px; } }
+
+/* FAQ */
+.faq-lista { display: grid; max-width: 880px; border-top: 1px solid var(--linha); }
+details.q { border-bottom: 1px solid var(--linha); }
+details.q summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 22px 0; font-weight: 500; font-size: 17px; }
+details.q summary::-webkit-details-marker { display: none; }
+details.q p { padding: 0 48px 24px 0; color: var(--ink-suave); max-width: 70ch; }
+.mais { flex: none; width: 32px; height: 32px; border-radius: 50%; border: 2px solid var(--ink); display: grid; place-items: center; font-weight: 600; transition: transform .25s; }
+details[open] > summary .mais { transform: rotate(45deg); }
+
+/* IDENTIFICAÇÃO */
+.ident { background: var(--rosa-claro); }
+.ident .eyebrow { color: var(--ink); }
+.ident .lead { color: var(--ink); }
+.listas { display: grid; grid-template-columns: 1.2fr 1fr; gap: 24px; }
+.lista { background: var(--creme); border-radius: var(--r-lg); padding: 34px 32px; min-width: 0; }
+.lista h3 { font-size: 20px; margin-bottom: 18px; }
+.lista ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+.lista li { display: flex; gap: 12px; font-size: 15.5px; }
+.lista li b { flex: none; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font-size: 13px; margin-top: 1px; }
+.lista.sim li b { background: var(--framboesa); color: var(--creme); }
+.lista.nao { background: transparent; box-shadow: inset 0 0 0 2px var(--ink); }
+.lista.nao li b { background: var(--ink); color: var(--creme); }
+@media (max-width: 860px) { .listas { grid-template-columns: 1fr; } }
+
+/* SOBRE */
+.sobre .wrap { display: grid; grid-template-columns: .85fr 1.15fr; gap: 64px; align-items: start; }
+.galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.ph { border-radius: var(--r-md); background: var(--rosa-claro); width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; display: block; }
+.ph.b { margin-top: 36px; }
+.numeros { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.numero { background: #fff; border-radius: var(--r-md); padding: 18px 20px; font-size: 14px; color: var(--ink-suave); line-height: 1.4; }
+.numero b { display: block; font-size: 28px; color: var(--framboesa); font-weight: 600; line-height: 1.1; margin-bottom: 4px; }
+.sobre-txt { display: grid; gap: 18px; min-width: 0; }
+.sobre-txt p { max-width: 62ch; }
+blockquote.frase { margin: 8px 0; padding: 22px 26px; background: var(--creme-2); border-radius: var(--r-md); font-family: var(--f-ingles); font-style: italic; font-size: 24px; line-height: 1.35; color: var(--framboesa); }
+@media (max-width: 860px) { .sobre .wrap { grid-template-columns: 1fr; gap: 40px; } .galeria { max-width: 420px; } }
+
+/* NÍVEIS */
+.niveis { background: var(--creme-2); }
+.niv-lista { display: grid; gap: 14px; max-width: 880px; }
+details.niv { background: #fff; border-radius: var(--r-md); }
+details.niv summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 18px; padding: 20px 24px; }
+details.niv summary::-webkit-details-marker { display: none; }
+.niv .cod { font-weight: 600; font-size: 15px; background: var(--turquesa); color: var(--ink); border-radius: 12px; text-align: center; padding: 8px 0; }
+.niv:nth-child(2) .cod { background: var(--rosa-claro); }
+.niv:nth-child(3) .cod { background: var(--rosa); }
+.niv:nth-child(4) .cod { background: var(--framboesa); color: var(--creme); }
+.niv summary h3 { font-size: 20px; }
+.niv summary h3 .en { color: var(--framboesa); }
+.niv .corpo { padding: 0 24px 24px 106px; display: grid; gap: 14px; }
+.niv .corpo > p:first-child { font-weight: 500; }
+.niv .corpo ul { margin: 0; padding-left: 18px; color: var(--ink-suave); font-size: 15.5px; display: grid; gap: 6px; }
+.niv .conquista { background: var(--creme); border-radius: 12px; padding: 12px 16px; font-size: 15px; }
+.niv .conquista b { color: var(--turquesa-p); }
+.sub-faq { margin-top: 56px; }
+.sub-faq h3 { font-size: 22px; margin-bottom: 8px; }
+@media (max-width: 600px) { details.niv summary { grid-template-columns: 52px 1fr auto; gap: 12px; padding: 16px; } .niv .corpo { padding: 0 16px 20px; } }
+
+/* FECHAMENTO */
+.final { background: var(--framboesa); color: var(--creme); text-align: center; position: relative; overflow: hidden; }
+.final .wrap { display: grid; gap: 18px; justify-items: center; position: relative; }
+.final h2 { font-size: clamp(30px, 4.6vw, 52px); max-width: 20ch; margin-bottom: 8px; }
+.final p { max-width: 54ch; color: #F7DDE6; font-size: 1.05em; }
+.final p.forte { color: var(--creme); font-weight: 600; }
+.final .btn { margin-top: 12px; }
+.final .circ { position: absolute; border-radius: 50%; }
+.final .c1 { width: 280px; height: 280px; background: var(--rosa); left: -110px; bottom: -120px; }
+.final .c2 { width: 160px; height: 160px; background: var(--coral); right: -40px; top: -50px; }
+@media (max-width: 600px) { .final .c1 { width: 180px; height: 180px; left: -100px; } .final .c2 { width: 110px; height: 110px; right: -50px; } }
+
+.wa-fixo { position: fixed; z-index: 30; right: calc(20px + env(safe-area-inset-right, 0px)); bottom: calc(20px + env(safe-area-inset-bottom, 0px)); display: flex; align-items: center; gap: 10px; background: var(--turquesa); color: var(--ink); text-decoration: none; font-weight: 600; font-size: 15px; padding: 12px 20px 12px 14px; border-radius: 999px; box-shadow: 0 6px 20px rgba(61, 20, 48, .22); transition: transform .2s; }
+.wa-fixo:hover { transform: translateY(-2px); }
+.wa-fixo:focus-visible { outline: 3px solid var(--ink); outline-offset: 3px; }
+.wa-fixo svg { width: 28px; height: 28px; flex: none; }
+@media (max-width: 600px) { .wa-fixo { padding: 14px; right: calc(16px + env(safe-area-inset-right, 0px)); bottom: calc(16px + env(safe-area-inset-bottom, 0px)); } .wa-fixo span { display: none; } }
+footer { padding-bottom: 96px !important; }
+footer { background: var(--ink); color: var(--creme); padding-block: 48px; font-size: 14px; }
+footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 24px; align-items: center; }
+footer .logo .en { color: var(--rosa); }
+footer .sub { color: #CDB3C2; margin-top: 4px; }
+footer nav { display: flex; flex-wrap: wrap; gap: 20px; }
+footer nav a { text-decoration: none; }
+footer nav a:hover { color: var(--rosa); }
+footer .copy { width: 100%; color: #A98A9C; border-top: 1px solid #5C2B4C; padding-top: 20px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+</style>
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+<header class="nav faixa">
+  <div class="wrap">
+    <a href="#home" class="logo">Inglês com <span class="en">Andreza</span></a>
+    <ul>
+      <li><a href="#andreza">Quem sou</a></li>
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#cursos">Planos</a></li>
+      <li><a href="#beneficios">Diferenciais</a></li>
+      <li><a href="#niveis">Níveis</a></li>
+      <li><a href="#faq">Dúvidas</a></li>
+    </ul>
+    <div class="nav-acoes">
+      <a href="#cursos" class="btn">Conhecer planos</a>
+      <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu-mob" aria-label="Abrir menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+  <nav class="menu-mob" id="menu-mob" hidden>
+    <a href="#andreza">Quem sou</a><a href="#metodo">Método</a><a href="#cursos">Planos</a><a href="#beneficios">Diferenciais</a><a href="#niveis">Níveis</a><a href="#faq">Dúvidas</a>
+  </nav>
+</header>
+
+<main id="home">
+
+<!-- HERO -->
+<section class="hero faixa">
+  <div class="wrap">
+    <div class="hero-txt">
+      <span class="kicker">Aulas online · Do zero à conversação</span>
+      <h1>Inglês com <span class="en">Andreza</span></h1>
+      <h2>Aprenda inglês para <span class="en">conversar<svg viewBox="0 0 200 20" preserveAspectRatio="none" aria-hidden="true"><path d="M3 14 C 50 4, 120 4, 197 11" fill="none" stroke="#F47E60" stroke-width="5" stroke-linecap="round"/></svg></span> na vida real.</h2>
+      <p class="lead">Aulas e materiais pensados para você usar o inglês, e não apenas estudar sobre ele.</p>
+      <p class="lead">Aqui, você aprende a fazer perguntas, falar sobre a sua vida, dizer o que pensa, manter uma conversa e resolver situações em inglês. Vocabulário e estruturas que você vai usar de verdade fora da aula.</p>
+      <div><a href="#cursos" class="btn">Conhecer planos →</a></div>
+    </div>
+    <div class="foto">
+      <div class="sol"></div>
+      <div class="onda"></div>
+      <div class="quadro"><img src="img/topo.jpg" alt="Teacher Andreza sorrindo, com o notebook aberto" width="760" height="950"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MÉTODO -->
+<section class="metodo faixa" id="metodo">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Método</span>
+      <h2 class="titulo">Seu inglês não acontece só durante a <span class="en">aula</span>.</h2>
+      <p class="lead">Cada semana é um novo ciclo para transformar o que você aprende em inglês que você realmente consegue usar.</p>
+    </div>
+    <div class="passos">
+      <article class="passo">
+        <span class="num">01</span>
+        <h3>Aprenda e Use</h3>
+        <p>Na aula ao vivo, você aprende vocabulário, estruturas e formas de se comunicar dentro de situações reais, e já começa a colocar tudo em prática.</p>
+        <p>Você não termina a aula só sabendo uma regra nova. Termina conseguindo fazer algo novo em inglês.</p>
+        <div class="chips"><span>Aula ao vivo</span><span>Material autoral</span><span>Prática de speaking</span></div>
+      </article>
+      <article class="passo">
+        <span class="num">02</span>
+        <h3>Pratique e Fixe</h3>
+        <p>Durante a semana, você continua em contato com o que aprendeu.</p>
+        <p>O homework e o planner de speaking fazem você recuperar, praticar e usar de novo o conteúdo, em vez de ver uma vez e esquecer até a próxima aula.</p>
+        <div class="chips"><span>Homework</span><span>Planner de speaking</span><span>Prática guiada</span></div>
+      </article>
+      <article class="passo">
+        <span class="num">03</span>
+        <h3>Receba Feedback e Evolua</h3>
+        <p>Seus erros mostram o que ainda precisa de atenção.</p>
+        <p>Com feedback, revisões e acompanhamento, você entende o que já consegue fazer, o que precisa praticar mais e qual é o próximo passo. E então um novo ciclo começa.</p>
+        <div class="chips"><span>Feedback</span><span>Revisões</span><span>Acompanhamento</span></div>
+      </article>
+    </div>
+    <div class="ciclo" aria-label="Ciclo: aprenda, use, pratique, receba feedback, evolua">
+      <span>Aprenda</span><span class="seta">→</span><span>Use</span><span class="seta">→</span><span>Pratique</span><span class="seta">→</span><span>Receba feedback</span><span class="seta">→</span><span>Evolua</span><span class="seta">↻</span>
+    </div>
+    <p class="fecha">É assim que o inglês deixa de ser só conteúdo e começa a virar comunicação.</p>
+  </div>
+</section>
+
+<!-- JORNADA -->
+<section class="faixa" id="beneficios">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Diferenciais</span>
+      <h2 class="titulo">Tudo o que acompanha a sua <span class="en">jornada</span></h2>
+      <p class="lead">Do início ao fim, você não está sozinha.</p>
+    </div>
+    <div class="incluso">
+      <div class="item">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="12" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+        <h3>Encontro semanal</h3>
+        <p>Ao vivo, para destravar o seu speaking e lapidar a gramática.</p>
+      </div>
+      <div class="item">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h12v18H6a2 2 0 0 1-2-2z"/><path d="M8 7h6M8 11h6"/></svg></div>
+        <h3>Material autoral</h3>
+        <p>Feito para aproveitar ao máximo cada aula.</p>
+      </div>
+      <div class="item">
+        <div class="ic"><svg viewBox="0 0 24 24"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M9 14l2 2 4-4"/></svg></div>
+        <h3>Homework semanal</h3>
+        <p>Tarefas de reforço depois de cada aula.</p>
+      </div>
+      <div class="item">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="4" y="4" width="16" height="17" rx="2"/><path d="M8 2v4M16 2v4M4 10h16M12 13a2 2 0 0 0-2 2v1a2 2 0 0 0 4 0v-1a2 2 0 0 0-2-2z"/></svg></div>
+        <h3>Planner de speaking</h3>
+        <p>Para praticar a fala também fora da aula, com constância.</p>
+      </div>
+      <div class="item">
+        <div class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="6" width="13" height="12" rx="2"/><path d="M16 10l5-3v10l-5-3z"/></svg></div>
+        <h3>Gravações das aulas</h3>
+        <p>Acesso às aulas gravadas nas turmas em grupo.</p>
+      </div>
+      <div class="item">
+        <div class="ic"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="6"/><path d="M8.5 14L7 22l5-3 5 3-1.5-8"/></svg></div>
+        <h3>Certificado</h3>
+        <p>Ao concluir a etapa com a frequência adequada.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPOIMENTOS -->
+<section class="depo faixa">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Depoimentos</span>
+      <h2 class="titulo">O que as alunas <span class="en">falam</span></h2>
+      <p class="lead">Quem vive a experiência conta melhor.</p>
+    </div>
+    <div class="depos">
+      <figure class="cartao"><div class="aspas">“</div><p>Eu me sentia insegura. Não tinha segurança nenhuma na fala, nem na escrita e muito menos na leitura. Hoje tenho <strong>segurança em saber que posso errar e continuar firme</strong>, porque sei que vai dar certo (vivi isso na prática na minha viagem!). <strong>Consigo ler e escrever também.</strong> Gosto de tudo nas nossas aulas!</p><cite>— Luísa N.</cite></figure>
+      <figure class="cartao"><div class="aspas">“</div><p>Eu sempre gostei de inglês, e com as aulas <strong>fui gostando cada vez mais</strong>. O que eu mais gosto são <strong>os jogos e as dinâmicas</strong>!</p><cite>— Sara M.</cite></figure>
+      <figure class="cartao"><div class="aspas">“</div><p>Eu não tinha tanta confiança para falar e achava meio chato aprender uma língua nova, porque nunca gostei muito das aulas de outros cursos. Agora estou <strong>falando com mais confiança</strong>, mesmo ainda com um pouco de medo, e <strong>descobri que não é algo chato</strong>. Quando vou aprender algo na escola, já sei pelo menos uma parte do assunto. A teacher me ajuda bastante em semana de provas, e a gente não conversa só sobre inglês, mas sobre vários outros assuntos.</p><cite>— Letícia M.</cite></figure>
+    </div>
+  </div>
+</section>
+
+<!-- PLANOS -->
+<section class="faixa" id="cursos">
+  <div class="wrap">
+    <div class="cab centro">
+      <span class="eyebrow">Opções de planos</span>
+      <h2 class="titulo">Escolha como você quer <span class="en">evoluir</span> no inglês</h2>
+      <p class="lead">Planos pensados para diferentes objetivos e rotinas.</p>
+    </div>
+    <div class="planos">
+      <article class="plano">
+        <span class="rot">Em turma</span>
+        <h3>Grupo</h3>
+        <p class="desc">Para quem quer destravar com prática e troca com outras alunas. Inglês do começo ao fim, em um ambiente leve.</p>
+        <ul>
+          <li>1 encontro por semana · 60 min</li>
+          <li>Turma pequena</li>
+          <li>Gravação das aulas em caso de ausência</li>
+          <li>Homework e planner de speaking</li>
+        </ul>
+        <div class="preco">A partir de <b>R$220/mês</b></div>
+        <a href="https://wa.me/5581994620535?text=Ol%C3%A1%2C%20Teacher%20Andreza%21%20Vi%20o%20seu%20site%20e%20quero%20saber%20mais%20sobre%20as%20turmas%20em%20grupo." target="_blank" rel="noopener" class="btn">Quero entrar na turma</a>
+      </article>
+      <article class="plano dest">
+        <span class="rot">Individual</span>
+        <h3>Particular</h3>
+        <p class="desc">Acompanhamento individual para quem quer um plano 100% focado em você. Para destravar o seu speaking e lapidar a gramática.</p>
+        <ul>
+          <li>1 encontro por semana</li>
+          <li>Horário flexível</li>
+          <li>Material adaptado aos seus objetivos</li>
+          <li>Homework e planner de speaking</li>
+        </ul>
+        <div class="preco">A partir de <b>R$360/mês</b></div>
+        <a href="https://wa.me/5581994620535?text=Ol%C3%A1%2C%20Teacher%20Andreza%21%20Vi%20o%20seu%20site%20e%20quero%20saber%20mais%20sobre%20as%20aulas%20particulares." target="_blank" rel="noopener" class="btn">Quero aula particular</a>
+      </article>
+    </div>
+    <aside class="experimental" id="experimental">
+      <div class="exp-txt">
+        <span class="rot">Aula experimental</span>
+        <h3>Quer conhecer antes de começar? Faça uma <span class="en">aula experimental</span>.</h3>
+        <p>Uma aula particular para você sentir como é o método na prática, conversar em inglês comigo e sair com um caminho claro para os seus objetivos.</p>
+      </div>
+      <div class="exp-info">
+        <div class="exp-dados">
+          <div><b>R$30</b>valor único</div>
+          <div><b>45 min</b>ao vivo e online</div>
+        </div>
+        <p class="exp-nota">Válida para o plano Particular.</p>
+        <a href="https://wa.me/5581994620535?text=Ol%C3%A1%2C%20Teacher%20Andreza%21%20Vi%20o%20seu%20site%20e%20quero%20agendar%20uma%20aula%20experimental." target="_blank" rel="noopener" class="btn">Agendar aula experimental</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faixa" id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Dúvidas</span>
+      <h2 class="titulo">Perguntas <span class="en">frequentes</span></h2>
+    </div>
+    <div class="faq-lista">
+      <details class="q"><summary>Como funciona a aula experimental?<span class="mais" aria-hidden="true">+</span></summary><p>É uma aula particular de 45 minutos, ao vivo e online, por R$30. Nela você conhece o método na prática, conversa em inglês comigo e entende qual é o melhor caminho para os seus objetivos. A aula experimental é válida para o plano Particular.</p></details>
+      <details class="q"><summary>Preciso saber inglês para entrar?<span class="mais" aria-hidden="true">+</span></summary><p>Não. Trabalho com alunas desde o zero absoluto até o nível intermediário. Antes de começar, você faz um teste de nivelamento para eu entender o seu nível e os seus objetivos.</p></details>
+      <details class="q"><summary>Tenho vergonha de falar inglês. As aulas são para mim?<span class="mais" aria-hidden="true">+</span></summary><p>Sim! O ambiente é acolhedor, as turmas são pequenas e o foco é na confiança, não na perfeição. Errar faz parte do processo, e você nunca será exposta ou corrigida de forma constrangedora.</p></details>
+      <details class="q"><summary>Quanto tempo leva para começar a falar inglês?<span class="mais" aria-hidden="true">+</span></summary><p>Você já fala desde a primeira aula. A fluência é construída com constância, prática guiada e confiança, e é isso que trabalhamos em cada encontro.</p></details>
+      <details class="q"><summary>As aulas são ao vivo ou gravadas?<span class="mais" aria-hidden="true">+</span></summary><p>As aulas são ao vivo e online. As aulas em turma ficam gravadas para você revisar quando quiser.</p></details>
+      <details class="q"><summary>Se eu faltar, perco a aula?<span class="mais" aria-hidden="true">+</span></summary><p>Nas aulas em grupo, você tem acesso à gravação e às atividades daquela aula. Nas aulas particulares, avisando com 24h de antecedência, você pode remarcar.</p></details>
+      <details class="q"><summary>Como descubro o meu nível?<span class="mais" aria-hidden="true">+</span></summary><p>Você faz um teste de nivelamento antes de começar. Com base no resultado, eu indico a turma ou o plano mais adequado para você.</p></details>
+      <details class="q"><summary>Recebo certificado?<span class="mais" aria-hidden="true">+</span></summary><p>Sim! Ao concluir a etapa com a frequência adequada, você recebe um certificado de conclusão.</p></details>
+      <details class="q"><summary>O que é o planner de speaking?<span class="mais" aria-hidden="true">+</span></summary><p>É um guia para você praticar a fala também fora da aula, com pequenas tarefas ao longo da semana. Assim o speaking vira hábito, e não algo que acontece só uma vez por semana.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- IDENTIFICAÇÃO -->
+<section class="ident faixa">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Identificação</span>
+      <h2 class="titulo">Talvez você esteja procurando exatamente isso</h2>
+      <p class="lead">As aulas foram pensadas para mulheres que querem aprender inglês de um jeito leve, prático e conectado à vida real.</p>
+    </div>
+    <div class="listas">
+      <div class="lista sim">
+        <h3>É para você se…</h3>
+        <ul>
+          <li><b>✓</b>Você quer aprender inglês para viajar com mais independência</li>
+          <li><b>✓</b>Você sente que entende mais do que consegue falar</li>
+          <li><b>✓</b>Você já tentou estudar antes, mas não conseguiu manter a constância</li>
+          <li><b>✓</b>Você quer se comunicar com mais confiança, sem medo de errar</li>
+          <li><b>✓</b>Você procura acompanhamento próximo e direcionamento claro</li>
+          <li><b>✓</b>Você quer parar de estudar conteúdos soltos e seguir um caminho estruturado</li>
+        </ul>
+      </div>
+      <div class="lista nao">
+        <h3>Talvez não seja para você se…</h3>
+        <ul>
+          <li><b>✕</b>Você procura fluência rápida ou promessas milagrosas</li>
+          <li><b>✕</b>Você quer apenas decorar regras de gramática</li>
+          <li><b>✕</b>Você não pretende praticar entre os encontros</li>
+          <li><b>✕</b>Você espera fluência sem participar das aulas e sem fazer as tarefas</li>
+          <li><b>✕</b>Você busca um curso totalmente gravado, sem interação</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section class="sobre faixa" id="andreza">
+  <div class="wrap">
+    <div class="galeria">
+      <img class="ph" src="img/sobre1.jpg" alt="Teacher Andreza de blazer rosa, sorrindo" width="640" height="853" loading="lazy">
+      <img class="ph b" src="img/sobre2.jpg" alt="Teacher Andreza de blusa listrada rosa, sorrindo em frente ao notebook" width="640" height="853" loading="lazy">
+      <div class="numeros">
+        <div class="numero"><b>Desde 2019</b>ensinando inglês</div>
+        <div class="numero"><b>100% online</b>aulas ao vivo, de onde você estiver</div>
+      </div>
+    </div>
+    <div class="sobre-txt">
+      <span class="eyebrow">Quem sou</span>
+      <h2 class="titulo">Muito prazer, eu sou a Teacher <span class="en">Andreza</span>.</h2>
+      <p>Ensino inglês desde 2019 e, ao longo desse caminho, aprendi uma coisa importante: existe uma grande diferença entre <em>estudar inglês</em> e <em>realmente usar inglês</em>.</p>
+      <blockquote class="frase">Você aprende a falar inglês falando: com perguntas e situações reais.</blockquote>
+      <p>Por isso, cada aula é personalizada de acordo com os objetivos e as necessidades de cada aluna. Uso vocabulário e gramática como apoio, mas o centro da aula é a conversa. Tenho materiais próprios para iniciantes e para conversação, e crio novos sempre que precisa.</p>
+      <p>Hoje ajudo mulheres a ganhar confiança para se comunicar em inglês, num ambiente acolhedor e sem a pressão da perfeição.</p>
+    </div>
+  </div>
+</section>
+
+<!-- NÍVEIS -->
+<section class="niveis faixa" id="niveis">
+  <div class="wrap">
+    <div class="cab">
+      <span class="eyebrow">Níveis</span>
+      <h2 class="titulo">Até onde sua jornada em inglês pode <span class="en">te levar</span></h2>
+      <p class="lead">Cada etapa foi pensada para você ganhar mais independência, confiança e autonomia usando o inglês na vida real.</p>
+    </div>
+    <div class="niv-lista">
+      <details class="niv" open>
+        <summary><span class="cod">A1</span><h3><span class="en">Starter</span></h3><span class="mais" aria-hidden="true">+</span></summary>
+        <div class="corpo">
+          <p>Você dá os primeiros passos com confiança e será capaz de:</p>
+          <ul>
+            <li>Se apresentar e falar informações pessoais básicas</li>
+            <li>Falar sobre a sua rotina e as atividades do dia a dia</li>
+            <li>Fazer perguntas simples e responder com segurança</li>
+            <li>Entender e usar expressões frequentes do cotidiano</li>
+            <li>Ler e escrever mensagens curtas e simples</li>
+          </ul>
+          <p class="conquista"><b>Conquista desta etapa:</b> você começa a se comunicar em situações simples do dia a dia.</p>
+        </div>
+      </details>
+      <details class="niv">
+        <summary><span class="cod">A2</span><h3><span class="en">Foundation</span></h3><span class="mais" aria-hidden="true">+</span></summary>
+        <div class="corpo">
+          <p>Você amplia a sua comunicação e será capaz de:</p>
+          <ul>
+            <li>Falar sobre experiências, planos e preferências</li>
+            <li>Participar de conversas simples sobre temas familiares</li>
+            <li>Descrever pessoas, lugares e acontecimentos</li>
+            <li>Entender conteúdos curtos do cotidiano</li>
+            <li>Escrever textos simples com mais clareza</li>
+          </ul>
+          <p class="conquista"><b>Conquista desta etapa:</b> você se sente mais independente e confortável usando o inglês.</p>
+        </div>
+      </details>
+      <details class="niv">
+        <summary><span class="cod">B1</span><h3><span class="en">Conversation</span></h3><span class="mais" aria-hidden="true">+</span></summary>
+        <div class="corpo">
+          <p>Você desenvolve mais fluência e confiança para:</p>
+          <ul>
+            <li>Participar de conversas sobre diferentes assuntos</li>
+            <li>Dar opiniões e justificar as suas ideias</li>
+            <li>Resolver situações do dia a dia em inglês</li>
+            <li>Entender conteúdos mais variados e autênticos</li>
+            <li>Escrever textos com mais detalhes e naturalidade</li>
+          </ul>
+          <p class="conquista"><b>Conquista desta etapa:</b> você se comunica com confiança em muitas situações reais.</p>
+        </div>
+      </details>
+      <details class="niv">
+        <summary><span class="cod">B2</span><h3><span class="en">Confident Speaker</span></h3><span class="mais" aria-hidden="true">+</span></summary>
+        <div class="corpo">
+          <p>Você alcança mais autonomia e será capaz de:</p>
+          <ul>
+            <li>Conversar com naturalidade sobre diversos temas</li>
+            <li>Defender opiniões e participar de discussões</li>
+            <li>Entender filmes, séries e conteúdos autênticos com facilidade</li>
+            <li>Ler textos mais complexos e interpretar diferentes pontos de vista</li>
+            <li>Escrever com clareza, precisão e confiança</li>
+          </ul>
+          <p class="conquista"><b>Conquista desta etapa:</b> você usa o inglês com independência para viajar, trabalhar e viver experiências internacionais.</p>
+        </div>
+      </details>
+    </div>
+
+    <div class="sub-faq">
+      <h3>Perguntas frequentes sobre os níveis</h3>
+      <div class="faq-lista">
+        <details class="q"><summary>Quanto tempo leva para avançar de nível?<span class="mais" aria-hidden="true">+</span></summary><p>Cada etapa tem uma duração planejada para desenvolver as habilidades com segurança e consistência. O tempo pode variar de acordo com a frequência, a dedicação e a participação de cada aluna.</p></details>
+        <details class="q"><summary>Preciso fazer teste para mudar de nível?<span class="mais" aria-hidden="true">+</span></summary><p>Sim! Ao final de cada nível, você faz uma avaliação para garantir que está pronta para o próximo passo.</p></details>
+        <details class="q"><summary>Posso revisar conteúdos anteriores?<span class="mais" aria-hidden="true">+</span></summary><p>Sim! Você tem acesso a revisões e materiais complementares sempre que precisar.</p></details>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FECHAMENTO -->
+<section class="final faixa" id="contato">
+  <span class="circ c1" aria-hidden="true"></span>
+  <span class="circ c2" aria-hidden="true"></span>
+  <div class="wrap">
+    <h2>Imagine onde o seu inglês pode te levar daqui a <span class="en">seis meses</span>.</h2>
+    <p>Talvez seja naquela viagem que você sempre adiou.</p>
+    <p>Talvez seja naquela oportunidade profissional que hoje parece distante.</p>
+    <p>Ou simplesmente a sensação de finalmente conseguir se expressar em inglês sem travar.</p>
+    <p class="forte">Você não precisa chegar lá sozinha. Vamos construir essa jornada juntas.</p>
+    <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center"><a href="#cursos" class="btn claro">Conhecer planos →</a><a href="#experimental" class="btn" style="background:transparent;box-shadow:inset 0 0 0 2px var(--creme)">Aula experimental</a></div>
+  </div>
+</section>
+
+</main>
+
+<footer class="faixa">
+  <div class="wrap">
+    <div>
+      <a href="#home" class="logo">Inglês com <span class="en">Andreza</span></a>
+      <p class="sub">Inglês para conversar na vida real.</p>
+    </div>
+    <nav>
+      <a href="https://instagram.com/inglescomandreza" target="_blank" rel="noopener">Instagram</a>
+      <a href="https://wa.me/5581994620535?text=Ol%C3%A1%2C%20Teacher%20Andreza%21%20Vi%20o%20seu%20site%20e%20quero%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener">WhatsApp (81) 99462-0535</a>
+      <a href="mailto:teacherandrezamendes@gmail.com">teacherandrezamendes@gmail.com</a>
+    </nav>
+    <p class="copy"><span>© 2026 Inglês com Andreza. Todos os direitos reservados.</span><span>Escola de inglês online para mulheres</span></p>
+  </div>
+</footer>
+<a class="wa-fixo" href="https://wa.me/5581994620535?text=Ol%C3%A1%2C%20Teacher%20Andreza%21%20Vi%20o%20seu%20site%20e%20quero%20saber%20mais%20sobre%20as%20aulas." target="_blank" rel="noopener" aria-label="Falar com a Teacher Andreza no WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.3-3.8 1.2 1.2-3.7-.3-.4a10.4 10.4 0 0 1-1.7-5.7C5.1 9.9 10 5.2 16 5.2s10.9 4.7 10.9 10.6S22 26.4 16 26.4zm6-7.9c-.3-.2-1.9-1-2.2-1.1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5c.1-.2 0-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.1 1.3 3.3c.2.2 2.3 3.5 5.5 4.9.8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4z"/></svg><span>Fale comigo</span></a>
+<script>
+(function(){
+  var b=document.getElementById('menu-btn'), m=document.getElementById('menu-mob');
+  if(!b||!m) return;
+  function set(open){ m.hidden=!open; b.setAttribute('aria-expanded', open); b.setAttribute('aria-label', open?'Fechar menu':'Abrir menu'); }
+  b.addEventListener('click', function(){ set(m.hidden); });
+  m.addEventListener('click', function(e){ if(e.target.tagName==='A') set(false); });
+})();
+</script>
+
+</body>
+</html>
